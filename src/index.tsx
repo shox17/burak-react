@@ -13,7 +13,7 @@ import "./css/index.css";
 const container = document.getElementById("root")!;
 const root = createRoot(container);
 
-// Global Integration
+// Global Integration > REDUX, MUI, ROUTER ...
 root.render(
   <React.StrictMode>
     <Provider store={store}>

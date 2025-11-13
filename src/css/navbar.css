@@ -196,7 +196,7 @@
   color: #f8f8ff;
   z-index: 100;
 }
-.other-navbar.underline {
+.other-navbar .underline {
   display: block;
   content: "";
   border-bottom: solid 2px #d7b686;
