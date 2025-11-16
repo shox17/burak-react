@@ -34,7 +34,6 @@ export default function Products() {
                   type="search"
                   className="single-search-input"
                   placeholder="Type here"
-                  value=""
                 />
                 <Button variant="contained" color="primary" className="order">
                   Search 
