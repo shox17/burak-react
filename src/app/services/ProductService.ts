@@ -6,7 +6,7 @@ class ProductService {
   private readonly path: string;
 
   constructor() {
-    this.path = serverApi; // Ensure this is "http://localhost:3003"
+    this.path = serverApi; 
   }
 
   public async getProducts(input: ProductInquiry): Promise<Product[]> {
@@ -18,7 +18,7 @@ class ProductService {
 
       const result = await axios.get(url);
       console.log("getProducts:", result);
-      
+
       return result.data;
     } catch (err) {
       console.error("Error, getProducts:", err);
