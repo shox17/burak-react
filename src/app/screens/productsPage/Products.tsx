@@ -8,18 +8,39 @@ import Pagination from "@mui/material/Pagination";
 import PaginationItem from "@mui/material/PaginationItem";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import { useDispatch, useSelector } from "react-redux";
+import { Dispatch } from "@reduxjs/toolkit";
+import { setProducts } from "./slice";
+import { createSelector } from "reselect";
+import { retrieveProducts } from "./selector";
+import { Product } from "../../../lib/types/product";
+
+/** REDUX SLICE & SELECTOR */
+const actionDispatch = (dispatch: Dispatch) => ({
+  setProducts: (data: Product[]) => dispatch(setProducts(data)),
+});
+const productsRetriever = createSelector(retrieveProducts, (products) => ({
+  products,
+}));
 
 const products = [
-  { productName: "Cutlet", imagePath: "/img/cutlet.webp", productPrice: "10" },
-  { productName: "Kebab", imagePath: "/img/kebab-fresh.webp", productPrice: "15" },
-  { productName: "Kebab", imagePath: "/img/kebab.webp", productPrice: "12" },
-  { productName: "Lavash", imagePath: "/img/lavash.webp", productPrice: "8" },
-  { productName: "Cutlet", imagePath: "/img/cutlet.webp", productPrice: "10" },
-  { productName: "Lavash", imagePath: "/img/lavash.webp", productPrice: "8" },
-  { productName: "Kebab", imagePath: "/img/kebab-fresh.webp", productPrice: "15" },
-  { productName: "Kebab", imagePath: "/img/kebab.webp", productPrice: "12" },
+  { productName: "Cutlet", imagePath: "/img/cutlet.webp", productPrice: "$10" },
+  {
+    productName: "Kebab",
+    imagePath: "/img/kebab-fresh.webp",
+    productPrice: "$15",
+  },
+  { productName: "Kebab", imagePath: "/img/kebab.webp", productPrice: "$12" },
+  { productName: "Lavash", imagePath: "/img/lavash.webp", productPrice: "$8" },
+  { productName: "Cutlet", imagePath: "/img/cutlet.webp", productPrice: "$10" },
+  { productName: "Lavash", imagePath: "/img/lavash.webp", productPrice: "$8" },
+  {
+    productName: "Kebab",
+    imagePath: "/img/kebab-fresh.webp",
+    productPrice: "$15",
+  },
+  { productName: "Kebab", imagePath: "/img/kebab.webp", productPrice: "$12" },
 ];
-
 
 export default function Products() {
   return (
@@ -36,7 +57,7 @@ export default function Products() {
                   placeholder="Type here"
                 />
                 <Button variant="contained" color="primary" className="order">
-                  Search 
+                  Search
                   <SearchIcon />
                 </Button>
               </Stack>
