@@ -9,11 +9,21 @@ interface OtherNavbarProps {
   onRemove: (item: CartItem) => void;
   onDelete: (item: CartItem) => void;
   onDeleteAll: () => void;
+  setSignupOpen: (value: boolean) => void;
+  setLoginOpen: (value: boolean) => void;
 }
 
 export default function OtherNavbar(props: OtherNavbarProps) {
-  const { cartItems, onDelete, onAdd, onDeleteAll, onRemove } = props;
-  const authMember = true;
+  const {
+    cartItems,
+    onDelete,
+    onAdd,
+    onDeleteAll,
+    onRemove,
+    setSignupOpen,
+    setLoginOpen,
+  } = props;
+  const authMember = null;
 
   return (
     <div className="other-navbar">
@@ -71,7 +81,11 @@ export default function OtherNavbar(props: OtherNavbarProps) {
 
             {!authMember ? (
               <Box>
-                <Button variant="contained" className="login-button">
+                <Button
+                  variant="contained"
+                  className="login-button"
+                  onClick={() => setLoginOpen(true)}
+                >
                   Login
                 </Button>
               </Box>
